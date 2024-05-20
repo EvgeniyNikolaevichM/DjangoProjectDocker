@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Просмотр платформ
+{% endblock %}
+
+{% block content %}
+    <h1>Просмотр платформ</h1>
+    <a href="{% url 'platformCreateView' %}">Добавить Stewart platform</a>
+   {% if object_list %}
+        {% for stewart_platform in object_list %}
+        <div class="post-entry">
+          <h2><a href="{% url 'platformDetailView' stewart_platform.pk %}">{{ stewart_platform.title_platform }}</a></h2>
+                 <p>Система: {{ stewart_platform.system_stewart_platform }}</p>
+                <p>Закон движения: {{ stewart_platform.law_type }}</p>
+{#                <p>Сформированный закон движения: {{ stewart_platform.discription_platform }}</p>#}
+{#                <p>Сформированный закон движенияJSON: {{ stewart_platform.discription_platformJSON }}</p>#}
+                <p>Длина кривошипа: {{ stewart_platform.SERVO_HORN }}</p>
+                <p>Длина стержня: {{ stewart_platform.SERVO_ROD }}</p>
+                <p>Радиус платформы: {{ stewart_platform.PLATFORM_RADIUS }}</p>
+                <p>Высота базового модуля: {{ stewart_platform.PLATFORM_DEFAULT_HEIGHT }}</p>
+                <p>Базовая высота: {{ stewart_platform.BASE_DEFAULT_HEIGHT }}</p>
+                <p>Пользователь: {{ stewart_platform.author }}</p>
+                <p>Добавлено: {{ stewart_platform.time_create }}</p>
+                <p>Изменено: {{ stewart_platform.time_update }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+            <p>У нас нет записей</p>
+    {% endif %}
+{% endblock %}
