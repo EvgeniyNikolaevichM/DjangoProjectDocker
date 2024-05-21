@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+    <h1 align="center">WEB-конструктор систем Stewart платформ </h1>
+    <h3 align="center">Добро пожаловать!</h3>
+    <img class="w-50 mx-auto d-block" height="339" width="339" src="{% static 'main/images/Stewart_platform.png' %}"   alt="photo" align="left">
+    <p1>С помощью данного конструктора Вы можете
+        создавать свои Stewart платформы, задавать для них Законы движения и формировать из платформ
+        единые Cистемы Stewart платформ.
+        Управляются платформы (базовые модули системы) на базе сетевого микроконтроллера.
+        Данный WEB-конструктор с распределенной системой SaaS позволяет в режиме онлайн изменять систему
+        (менять количество, расположение и характеристики базовых модулей) для моделирования сложных поверхностей под
+        различные задачи. Конструктор отвечает за хранение, загрузку и выгрузку Законов движения,
+        данных о геометрии Платформ, информацию о сформированных Системах, а объект-представление, основанный на CesiumJS, позволяет пользователю видеть платформы
+        на экране под разными углами, запускать и останавливать анимацию, смотреть текущие координаты. С помощью REST API
+        пользователь может передать софрмированные Законы движения на физические платформы.
+        Зарегистрируйтесь и войдите под своей Учетной записью для того чтобы начать пользоваться конструктором!
+    </p1>
+
+<div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">REST API:</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+        </div>
+        <div>
+          <h3 class="fs-2">Система</h3>
+          <p>Просмотр, редактирование, удаление систем</p>
+          <a href="http://127.0.0.1:8000/api/system/" class="btn btn-primary">
+            Начать!
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+        </div>
+        <div>
+          <h3 class="fs-2">Базовый модуль</h3>
+          <p>Просмотр, редактирование, удаление базовых модулей</p>
+          <a href="http://127.0.0.1:8000/api/platform/" class="btn btn-primary">
+             Начать!
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
+        </div>
+        <div>
+          <h3 class="fs-2">Закон движения</h3>
+          <p>Просмотр, редактирование, удаление законов движения</p>
+          <a href="http://127.0.0.1:8000/api/law/" class="btn btn-primary">
+             Начать!
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
